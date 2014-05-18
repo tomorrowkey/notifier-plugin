@@ -1,0 +1,101 @@
+final REPOSITORY_URL = 'https://github.com/tomorrowkey/notifier-plugin'
+
+final GROUP_ID = 'jp.tomorrowkey'
+final ARTIFACT_ID = 'notifier-plugin'
+final VERSION = '0.0.1'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.gradle.api.plugins:gradle-nexus-plugin:0.+'
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'maven'
+apply plugin: 'nexus'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile 'com.android.tools.build:gradle:+'
+    testCompile 'junit:junit:4.11'
+    testCompile 'org.hamcrest:hamcrest-all:1.+'
+    testCompile 'org.mockito:mockito-core:1.9.+'
+}
+
+// artifact settings
+
+String git(String command) {
+    println "git $command"
+    def process = ["sh", "-c", "cd ${project.rootDir} ; git $command"].execute()
+    if (process.waitFor() != 0) {
+        throw new GradleException(process.err.text)
+    }
+    return process.in.text
+}
+
+task('releng') {
+    doLast {
+        def gitStatus = git("status --porcelain")
+        if (gitStatus.trim()) {
+            throw new GradleException("Changes found:\n$gitStatus")
+        }
+
+        println git("tag v$VERSION")
+        println git("push origin v$VERSION")
+    }
+}
+
+configurations {
+    mavenDeployer
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+uploadArchives {
+    repositories.mavenDeployer {
+        pom.groupId = GROUP_ID
+        pom.artifactId = ARTIFACT_ID
+        pom.version = VERSION
+    }
+}
+
+modifyPom {
+    project {
+        name 'Notifier Plugin'
+        description 'Ring sound when last task is finished'
+        url REPOSITORY_URL
+        inceptionYear '2014'
+
+        scm {
+            url REPOSITORY_URL
+        }
+
+        licenses {
+            license {
+                name 'The Apache Software License, Version 2.0'
+                url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                distribution 'repo'
+            }
+        }
+
+        developers {
+            developer {
+                id 'tomorrowkey'
+                name 'Tomoki Yamashita'
+                email 'tomorrowkey@gmail.com'
+            }
+        }
+    }
+}
