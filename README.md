@@ -19,8 +19,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.10.+'
-        // TODO: insert classpath
+        classpath 'jp.tomorrowkey.gradle.notifier:notifier-plugin:0.0.1'
     }
 }
 ```
