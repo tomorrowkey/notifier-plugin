@@ -4,6 +4,6 @@
 
 * Initial Release
 
-## v0.0.2 - 2014-05-21
+## v0.0.2 - 2014-05-21 00:20:00+0900
 
 * Fix crash when notifier.groovy file is missing
