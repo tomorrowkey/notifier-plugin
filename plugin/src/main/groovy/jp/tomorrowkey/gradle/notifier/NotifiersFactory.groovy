@@ -11,21 +11,26 @@ public class NotifiersFactory {
     }
 
     static ConfigObject getConfig(String configFilePath) {
-        return new ConfigSlurper().parse(new File(configFilePath).toURL())
+        def file = new File(configFilePath);
+        if (file.exists()) {
+            return new ConfigSlurper().parse(file.toURI().toURL());
+        } else {
+            return new ConfigObject();
+        }
     }
 
     static Notifier[] create(Project project, ConfigObject config) {
         def notifiers = []
 
-        if(config.voice.enabled) {
+        if (config.voice.enabled) {
             notifiers.add(new VoiceNotifier(config.voice.name))
         }
 
-        if(config.notificationCenter.enabled) {
+        if (config.notificationCenter.enabled) {
             notifiers.add(new NotificationCenterNotifier())
         }
 
-        if(config.sound.enabled) {
+        if (config.sound.enabled) {
             notifiers.add(new SoundNotifier(project, config.sound.url))
         }
 
