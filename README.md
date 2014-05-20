@@ -31,7 +31,7 @@ apply plugin: 'notifier-plugin'
 # Configuration
 To use this plugin, you have to make a properties file.
 
-notifier.properties
+notifier.groovy
 ```
 voice {
     enabled = false
