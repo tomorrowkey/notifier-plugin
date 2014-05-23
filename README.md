@@ -46,6 +46,11 @@ sound {
     enabled = true
     url='file:///Users/tomorrowkey/Desktop/meow.mp3'
 }
+
+beep {
+    enabled = true
+    count = 5
+}
 ```
 
 ##voice
@@ -107,6 +112,13 @@ When use a sound file on local. just write like this.
 ```
 url="file:///Users/tomorrowkey/sound.mp3"
 ```
+
+## beep
+### enabled
+If set true, ring beep when gradle task is finished.
+
+### count
+count of beeps for ringing
 
 # License
 ```
