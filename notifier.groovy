@@ -1,5 +1,5 @@
 voice {
-    enabled = true
+    enabled = false
     name = 'Alex'
 }
 
@@ -9,5 +9,10 @@ notificationCenter {
 
 sound {
     enabled = false
-    url='http://example.com/sound.mp3'
+    url = 'http://example.com/sound.mp3'
+}
+
+beep {
+    enabled = true
+    count = 5;
 }

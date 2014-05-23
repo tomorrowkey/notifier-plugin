@@ -34,6 +34,15 @@ public class NotifiersFactory {
             notifiers.add(new SoundNotifier(project, config.sound.url))
         }
 
+        if (config.beep.enabled) {
+            if (config.beep.count instanceof Integer) {
+                notifiers.add(new BeepNotifier(config.beep.count));
+            } else {
+                notifiers.add(new BeepNotifier());
+            }
+
+        }
+
         return notifiers;
     }
 }
