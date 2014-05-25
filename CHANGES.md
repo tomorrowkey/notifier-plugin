@@ -11,3 +11,7 @@
 ## v0.0.3 - 2014-05-23 23:16:00+0900
 
 * Add an ability of ringing beep
+
+## v0.0.4 - 2014-05-25 11:16:00+0900
+
+* Improvement codes
