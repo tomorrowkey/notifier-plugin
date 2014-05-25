@@ -7,6 +7,7 @@ This plugin provide a ability of notifying you that gradle task is finished.
 # It supports only Mac
 Sorry for other platform users...  
 Because it uses `afplay` command for playing sound, Notification Center via apple script and `say` command for talking.  
+Beep may work on other platform.  
 
 I'll be happy, if you give me a PullRequest!
 
@@ -19,7 +20,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'jp.tomorrowkey.gradle.notifier:notifier-plugin:0.0.1'
+        classpath 'jp.tomorrowkey.gradle.notifier:notifier-plugin:+'
     }
 }
 ```
@@ -116,9 +117,11 @@ url="file:///Users/tomorrowkey/sound.mp3"
 ## beep
 ### enabled
 If set true, ring beep when gradle task is finished.
+default value is false
 
 ### count
-count of beeps for ringing
+count of beeps for ringing  
+default value is 3
 
 # License
 ```
