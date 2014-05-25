@@ -1,8 +1,8 @@
 Notifier Plugin
 =================
 
-Notifier Plugin is a plugin for gradle.
-This plugin provide a ability of notifying you that gradle task is finished.
+Notifier Plugin is a plugin for gradle.  
+This plugin provides an ability of notifying you that gradle task is finished.
 
 # It supports only Mac
 Sorry for other platform users...  
@@ -30,7 +30,7 @@ apply plugin: 'notifier-plugin'
 ```
 
 # Configuration
-To use this plugin, you have to make a properties file.
+To use this plugin, you have to make a configuration file.
 
 notifier.groovy
 ```
@@ -56,7 +56,7 @@ beep {
 
 ##voice
 ### enabled
-If set true, your computer talk when gradle task is finished.
+If set true, your computer talks when gradle task is finished.
 default value is `false`
 
 ### name
