@@ -4,10 +4,17 @@ import org.gradle.api.Project
 
 public class NotifiersFactory {
 
+    private static final String DEFAULT_CONFIG_FILE_PATH = "default.groovy";
+
     private static final String CONFIG_FILE_PATH = "notifier.groovy";
 
     public static Notifier[] create(Project project) {
-        return create(project, getConfig(CONFIG_FILE_PATH))
+        Map config = getDefaultConfig().merge(getConfig(CONFIG_FILE_PATH));
+        return create(project, config)
+    }
+
+    static ConfigObject getDefaultConfig() {
+        return new ConfigSlurper().parse(Thread.currentThread().getContextClassLoader().getResource(DEFAULT_CONFIG_FILE_PATH));
     }
 
     static ConfigObject getConfig(String configFilePath) {
@@ -19,7 +26,7 @@ public class NotifiersFactory {
         }
     }
 
-    static Notifier[] create(Project project, ConfigObject config) {
+    static Notifier[] create(Project project, Map config) {
         def notifiers = []
 
         if (config.voice.enabled) {
@@ -40,7 +47,6 @@ public class NotifiersFactory {
             } else {
                 notifiers.add(new BeepNotifier());
             }
-
         }
 
         return notifiers;
