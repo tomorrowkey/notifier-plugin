@@ -123,6 +123,10 @@ default value is false
 count of beeps for ringing  
 default value is 3
 
+# Open Source License
+
+This plugin made with [gradle-plugin-template](https://github.com/gfx/gradle-plugin-template)
+
 # License
 ```
 Copyright 2014 tomorrowkey
