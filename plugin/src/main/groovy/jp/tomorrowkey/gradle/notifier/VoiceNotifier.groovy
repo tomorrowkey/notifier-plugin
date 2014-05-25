@@ -7,11 +7,7 @@ public class VoiceNotifier implements Notifier {
     String voice
 
     public VoiceNotifier(voice) {
-        if(voice == null || voice.isEmpty()) {
-            this.voice = "Alex"
-        } else {
-            this.voice = voice
-        }
+        this.voice = voice
     }
 
     public void performNotify(task, state) {

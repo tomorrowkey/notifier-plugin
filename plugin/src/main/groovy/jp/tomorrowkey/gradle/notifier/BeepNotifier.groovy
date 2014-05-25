@@ -4,9 +4,9 @@ import java.awt.*
 
 class BeepNotifier implements Notifier {
 
-    def count;
+    int count;
 
-    public BeepNotifier(count = 3) {
+    public BeepNotifier(int count) {
         this.count = count;
     }
 
