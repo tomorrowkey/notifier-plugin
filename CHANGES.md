@@ -15,3 +15,7 @@
 ## v0.0.4 - 2014-05-25 11:16:00+0900
 
 * Improvement codes
+
+## v0.0.5 - 2014-11-22 11:50:00+0900
+
+* Remove unused dependency
