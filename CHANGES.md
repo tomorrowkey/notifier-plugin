@@ -1,5 +1,10 @@
 # The revision history of notifier-plugin
 
+## v1.0.0 - 2015-05-09 16:30:00+0900
+
+- Support Java8
+- Config file name changed from `notifier.groovy` to `notifier.properties`
+
 ## v0.0.5 - 2014-11-22 11:50:00+0900
 
 - Remove unused dependency

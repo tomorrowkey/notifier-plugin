@@ -2,7 +2,7 @@ final REPOSITORY_URL = 'https://github.com/tomorrowkey/notifier-plugin'
 
 final GROUP_ID = 'jp.tomorrowkey.gradle.notifier'
 final ARTIFACT_ID = 'notifier-plugin'
-final VERSION = '0.0.5'
+final VERSION = '1.0.0'
 
 buildscript {
     repositories {
