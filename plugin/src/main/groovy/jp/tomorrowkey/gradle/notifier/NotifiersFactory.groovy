@@ -25,8 +25,10 @@ public class NotifiersFactory {
 
     static Map getConfig(File configFile) {
         def props = new Properties();
-        configFile.withInputStream {
-            stream -> props.load(stream)
+        if(configFile.exists()) {
+            configFile.withInputStream {
+                stream -> props.load(stream)
+            }
         }
         return props
     }
