@@ -20,7 +20,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'jp.tomorrowkey.gradle.notifier:notifier-plugin:+'
+        classpath 'jp.tomorrowkey.gradle.notifier:notifier-plugin:1.0.1'
     }
 }
 ```
